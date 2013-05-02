@@ -13,9 +13,9 @@
   <description>A magnolia module to ease installation on Amazon AWS</description>
   <inceptionYear>2013</inceptionYear>
   <scm>
-    <connection>scm:git:git@github.com:openmindlab/openutils-mgnlaws.git</connection>
-    <developerConnection>scm:git:git@github.com:openmindlab/openutils-mgnlaws.git</developerConnection>
-    <url>http://github.com/openmindlab/openutils-mgnlaws</url>
+    <connection>scm:git:git@github.com:openmindlab/${project.artifactId}.git</connection>
+    <developerConnection>scm:git:git@github.com:openmindlab/${project.artifactId}.git</developerConnection>
+    <url>http://github.com/openmindlab/${project.artifactId}</url>
   </scm>
   <licenses>
     <license>
