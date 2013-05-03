@@ -1,0 +1,10 @@
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="../config/ehcache.xsd"
+  Name="S3DataStore">
+
+  <diskStore path="java.io.tmpdir" />
+
+  <cache name="s3datastore-cache" maxElementsInMemory="10000"
+    eternal="false" timeToIdleSeconds="120">
+  </cache>
+</ehcache>
