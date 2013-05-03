@@ -76,9 +76,9 @@ public class S3DataStore implements DataStore
 
     private static final String DIGEST = "SHA-1";
 
-    private static final String PREFIX = "/datastore";
+    private static final String PREFIX = "datastore";
 
-    private static final String PREFIX_TMP = "/temp/";
+    private static final String PREFIX_TMP = "temp/";
 
     /**
      * Config parameter awsAccessKey
