@@ -104,9 +104,9 @@ public class S3DataStore implements DataStore
      * Config parameter bucket name
      */
     protected String bucket;
-    
+
     /**
-     * Base path for s3 files 
+     * Base path for s3 files
      */
     protected String s3Path = "/";
 
@@ -414,7 +414,6 @@ public class S3DataStore implements DataStore
             {
                 cache.releaseReadLockOnKey(key);
             }
-            cache.acquireWriteLockOnKey(key);
         }
 
         try
@@ -428,24 +427,26 @@ public class S3DataStore implements DataStore
                 }
                 usesIdentifier(identifier);
                 record = new S3DataRecord(identifier, object);
+
+                if (useCache)
+                {
+                    cache.acquireWriteLockOnKey(key);
+                    try
+                    {
+                        record = new CachedS3DataRecord((S3DataRecord) record, cacheDirectory);
+                        cache.put(new Element(key, record));
+                    }
+                    catch (DataStoreException e)
+                    {
+                        log.error("Error creating cached record", e);
+                    }
+                    catch (IOException e)
+                    {
+                        log.error("Error creating cached record", e);
+                    }
+                }
+                return record;
             }
-            if (useCache)
-            {
-                try
-                {
-                    record = new CachedS3DataRecord((S3DataRecord) record, cacheDirectory);
-                    cache.put(new Element(key, record));
-                }
-                catch (DataStoreException e)
-                {
-                    log.error("Error creating cached record", e);
-                }
-                catch (IOException e)
-                {
-                    log.error("Error creating cached record", e);
-                }
-            }
-            return record;
         }
         finally
         {
@@ -674,13 +675,11 @@ public class S3DataStore implements DataStore
         this.cacheDirectoryPath = cacheDirectoryPath;
     }
 
-    
     public String getS3Path()
     {
         return s3Path;
     }
 
-    
     public void setS3Path(String s3Path)
     {
         this.s3Path = s3Path;
