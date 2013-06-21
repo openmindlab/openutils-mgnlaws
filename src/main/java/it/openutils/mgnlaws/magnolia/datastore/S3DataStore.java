@@ -344,7 +344,7 @@ public class S3DataStore implements DataStore
     public void close() throws DataStoreException
     {
         transferManager.shutdownNow();
-        if (useCache)
+        if (useCache && cacheManager != null)
         {
             cacheManager.shutdown();
         }
