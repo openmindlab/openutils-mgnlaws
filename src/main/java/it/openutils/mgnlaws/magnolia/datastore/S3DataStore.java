@@ -80,12 +80,12 @@ public class S3DataStore implements DataStore
     /**
      * Config parameter awsAccessKey
      */
-    protected String awsAccessKey = "AKIAJZ42NZG2V4RVZVYQ";
+    protected String awsAccessKey;
 
     /**
      * Config parameter awsSecretKey
      */
-    protected String awsSecretKey = "nYyQn74+KvkLAC+TxJfNgLdNMA+qNGWoZCdidmVd";
+    protected String awsSecretKey;
 
     /**
      * Config parameter minModifiedDate
