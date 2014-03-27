@@ -16,9 +16,6 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-// Access Key Id: AKIAJZ42NZG2V4RVZVYQ
-// Secret Access Key: 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
 package it.openutils.mgnlaws.magnolia.datastore;
 
 import java.io.File;
